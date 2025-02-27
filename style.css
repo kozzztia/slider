@@ -1,13 +1,66 @@
-:root{
-    --bg-color :red;
+.slider {
+    position: relative;
+    background: var(--slider-color);
+    max-width: 1440px;
+    height: 600px;
+    margin: 0 auto;
+    padding: var(--padding);
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.slide {
+    position: absolute;
+    top: 0;
+    left: 33%;
+    bottom: 0;
+    width: 33%;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+    opacity: 0; 
+    padding: var(--padding);
+
 }
 
-body{
-    background-color: var(--bg-color);
+/* Отображение активных элементов */
+.prev,
+.next,
+.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Красные границы для отладки */
+.prev,
+.next,
+.active {
+    border: 1px solid red;
+}
+
+/* Расположение слайдов */
+.prev {
+    left: 5%;
+    transform: scale(0.9);
+    z-index: 50;
+}
+.active {
+    left: 33%;
+    transform: scale(1);
+    z-index: 99;
+    background: #000;
+}
+.next {
+    left: 62%;
+    transform: scale(0.9);
+    z-index: 50;
+}
+
+/* Скрытые элементы (уходят за границы) */
+.prevHide {
+    left: -35%;
+    transform: scale(0.9);
+    opacity: 0;
+}
+.nextHide {
+    left: 100%;
+    transform: scale(0.9);
+    opacity: 0;
 }
